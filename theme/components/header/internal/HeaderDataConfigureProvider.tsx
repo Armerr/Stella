@@ -2,8 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
-import { cloneDeep } from '~/lib/lodash'
-import { useAggregationSelector } from '~/providers/root/aggregation-data-provider'
+import { cloneDeep } from '../../../lib/lodash'
 
 import { headerMenuConfig as baseHeaderMenuConfig } from '../config'
 
@@ -13,12 +12,8 @@ const HeaderMenuConfigContext = createContext({
 
 export const useHeaderConfig = () => useContext(HeaderMenuConfigContext)
 export const HeaderDataConfigureProvider: Component = ({ children }) => {
-  const pageMeta = useAggregationSelector(
-    (aggregationData) => aggregationData.pageMeta,
-  )
-  const categories = useAggregationSelector(
-    (aggregationData) => aggregationData.categories,
-  )
+  const pageMeta = undefined
+  const categories= undefined
   const [headerMenuConfig, setHeaderMenuConfig] = useState(baseHeaderMenuConfig)
 
   useEffect(() => {
@@ -37,7 +32,7 @@ export const HeaderDataConfigureProvider: Component = ({ children }) => {
       }
     }
 
-    if (categories?.length) {
+    if (categories) {
       const postIndex = nextMenuConfig.findIndex((item) => item.type === 'Post')
       if (postIndex !== -1) {
         nextMenuConfig[postIndex].subMenu = []
