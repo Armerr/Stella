@@ -1,11 +1,9 @@
-'use client'
+''
 
 import clsx from 'clsx'
 
-import { useHeaderBgOpacity } from './hooks'
 
 export const BluredBackground = () => {
-  const headerOpacity = useHeaderBgOpacity()
   return (
     <div
       className={clsx(
@@ -13,9 +11,6 @@ export const BluredBackground = () => {
         'bg-themed-bg_opacity [border-bottom:1px_solid_rgb(187_187_187_/_20%)]',
         // "before:bg-accent/5 before:content-[''] before:absolute before:inset-0 before:z-0",
       )}
-      style={{
-        opacity: headerOpacity,
-      }}
     />
   )
 }

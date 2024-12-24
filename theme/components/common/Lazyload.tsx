@@ -1,4 +1,4 @@
-'use client'
+''
 
 import type { FC, PropsWithChildren } from 'react'
 import React, { useEffect } from 'react'

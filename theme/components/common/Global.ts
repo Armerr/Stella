@@ -1,4 +1,4 @@
-'use client'
+''
 
 import useIsomorphicLayoutEffect from 'use-isomorphic-layout-effect'
 import React from 'react'

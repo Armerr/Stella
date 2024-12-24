@@ -1,4 +1,4 @@
-'use client'
+''
 
 import clsx from 'clsx'
 import {
@@ -10,12 +10,11 @@ import {
 } from 'framer-motion'
 import React, {memo} from 'react'
 
-import {RootPortal} from '../../ui/portal'
+import {RootPortal} from '../../../ui/portal'
 import {clsxm} from '../../../lib/helper'
 
 import type {IHeaderMenu} from '../config'
 import {useHeaderConfig} from './HeaderDataConfigureProvider'
-import {useHeaderHasMetaInfo, useMenuOpacity} from './hooks'
 import {MenuPopover} from './MenuPopover'
 
 export const HeaderContent = () => {
@@ -30,7 +29,6 @@ export const HeaderContent = () => {
 }
 
 const AccessibleMenu: Component = () => {
-    const hasMetaInfo = useHeaderHasMetaInfo()
 
     const showShow = true;
     return (
@@ -53,16 +51,14 @@ const AccessibleMenu: Component = () => {
 }
 
 const AnimatedMenu: Component = ({children}) => {
-    const opacity = useMenuOpacity()
 
-    const hasMetaInfo = useHeaderHasMetaInfo()
-    const shouldHideNavBg = !hasMetaInfo && opacity === 0
+    const shouldHideNavBg = true
     return (
         <m.div
             className="duration-100"
             style={{
-                opacity: hasMetaInfo ? opacity : 1,
-                visibility: opacity === 0 && hasMetaInfo ? 'hidden' : 'visible',
+                opacity: 1,
+                visibility: 'visible',
             }}
         >
             {/* @ts-ignore */}

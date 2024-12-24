@@ -4,7 +4,6 @@ import { ErrorBoundary } from '../common/ErrorBoundary.tsx'
 import { clsxm } from '../../lib/helper'
 
 import { BluredBackground } from './internal/BluredBackground'
-import './internal/grid.module.css'
 import {
   HeaderCenterArea,
   HeaderLeftButtonArea,
@@ -12,9 +11,7 @@ import {
 } from './internal/HeaderArea'
 import { HeaderContent } from './internal/HeaderContent'
 import { HeaderDataConfigureProvider } from './internal/HeaderDataConfigureProvider'
-import { HeaderDrawerButton } from './internal/HeaderDrawerButton'
 import { HeaderWithShadow } from './internal/HeaderWithShadow'
-import { UserAuth } from './internal/UserAuth'
 
 export const Header = () => {
   return (
@@ -35,7 +32,6 @@ const MemoedHeader = memo(() => {
         )}
       >
         <HeaderLeftButtonArea>
-          <HeaderDrawerButton />
         </HeaderLeftButtonArea>
 
         <HeaderLogoArea>
@@ -47,7 +43,6 @@ const MemoedHeader = memo(() => {
         </HeaderCenterArea>
 
         <div className="flex size-full items-center">
-          <UserAuth />
         </div>
       </div>
     </HeaderWithShadow>

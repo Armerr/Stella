@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-import { clsxm } from '~/lib/helper'
+import { clsxm } from '../../../lib/helper'
 
 export const Logo = (props: SVGProps<SVGSVGElement>) => (
   <svg

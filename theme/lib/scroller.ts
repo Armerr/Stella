@@ -1,4 +1,4 @@
-'use client'
+''
 
 import type { Spring } from 'framer-motion'
 import { animateValue } from 'framer-motion'

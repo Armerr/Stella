@@ -1,58 +1,58 @@
-'use client'
+''
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import {createContext, useContext, useEffect, useMemo, useState} from 'react'
 
-import { cloneDeep } from '../../../lib/lodash'
+import {cloneDeep} from '../../../lib/lodash'
 
-import { headerMenuConfig as baseHeaderMenuConfig } from '../config'
+import {headerMenuConfig as baseHeaderMenuConfig} from '../config'
 
 const HeaderMenuConfigContext = createContext({
-  config: baseHeaderMenuConfig,
+    config: baseHeaderMenuConfig,
 })
 
 export const useHeaderConfig = () => useContext(HeaderMenuConfigContext)
-export const HeaderDataConfigureProvider: Component = ({ children }) => {
-  const pageMeta = undefined
-  const categories= undefined
-  const [headerMenuConfig, setHeaderMenuConfig] = useState(baseHeaderMenuConfig)
+export const HeaderDataConfigureProvider: Component = ({children}) => {
+    const pageMeta = undefined
+    const categories = undefined
+    const [headerMenuConfig, setHeaderMenuConfig] = useState(baseHeaderMenuConfig)
 
-  useEffect(() => {
-    if (!pageMeta) return
-    const nextMenuConfig = cloneDeep(baseHeaderMenuConfig)
-    if (pageMeta) {
-      const homeIndex = nextMenuConfig.findIndex((item) => item.type === 'Home')
-      if (homeIndex !== -1) {
-        nextMenuConfig[homeIndex].subMenu = []
-        for (const page of pageMeta) {
-          nextMenuConfig[homeIndex].subMenu!.push({
-            path: `/${page.slug}`,
-            title: page.title,
-          })
+    useEffect(() => {
+        if (!pageMeta) return
+        const nextMenuConfig = cloneDeep(baseHeaderMenuConfig)
+        if (pageMeta) {
+            const homeIndex = nextMenuConfig.findIndex((item) => item.type === 'Home')
+            if (homeIndex !== -1) {
+                nextMenuConfig[homeIndex].subMenu = []
+                for (const page of pageMeta) {
+                    nextMenuConfig[homeIndex].subMenu!.push({
+                        path: `/${page.slug}`,
+                        title: page.title,
+                    })
+                }
+            }
         }
-      }
-    }
 
-    if (categories) {
-      const postIndex = nextMenuConfig.findIndex((item) => item.type === 'Post')
-      if (postIndex !== -1) {
-        nextMenuConfig[postIndex].subMenu = []
-        for (const category of categories) {
-          nextMenuConfig[postIndex].subMenu!.push({
-            path: `/categories/${category.slug}`,
-            title: category.name,
-          })
+        if (categories) {
+            const postIndex = nextMenuConfig.findIndex((item) => item.type === 'Post')
+            if (postIndex !== -1) {
+                nextMenuConfig[postIndex].subMenu = []
+                for (const category of categories) {
+                    nextMenuConfig[postIndex].subMenu!.push({
+                        path: `/categories/${category.slug}`,
+                        title: category.name,
+                    })
+                }
+            }
         }
-      }
-    }
 
-    setHeaderMenuConfig(nextMenuConfig)
-  }, [categories, pageMeta])
+        setHeaderMenuConfig(nextMenuConfig)
+    }, [categories, pageMeta])
 
-  return (
-    <HeaderMenuConfigContext.Provider
-      value={useMemo(() => ({ config: headerMenuConfig }), [headerMenuConfig])}
-    >
-      {children}
-    </HeaderMenuConfigContext.Provider>
-  )
+    return (
+        <HeaderMenuConfigContext.Provider
+            value={useMemo(() => ({config: headerMenuConfig}), [headerMenuConfig])}
+        >
+            {children}
+        </HeaderMenuConfigContext.Provider>
+    )
 }

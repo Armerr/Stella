@@ -1,4 +1,4 @@
-import { ThemeSwitcher } from '../ui/theme-switcher'
+import { ThemeSwitcher } from '../../ui/theme-switcher'
 
 import { FooterInfo } from './FooterInfo'
 

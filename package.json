@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@egoist/tailwindcss-icons": "^1.8.2",
+    "@floating-ui/react-dom": "^2.1.2",
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "daisyui": "^4.12.22",
+    "foxact": "^0.2.43",
     "framer-motion": "^11.15.0",
+    "jojoo": "^0.3.0",
     "jotai": "^2.11.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
@@ -23,6 +26,7 @@
     "react-intersection-observer": "^9.14.0",
     "tailwind-variants": "^0.3.0",
     "tailwindcss": "^3.4.17",
-    "use-isomorphic-layout-effect": "^1.2.0"
+    "use-isomorphic-layout-effect": "^1.2.0",
+    "vaul": "^1.1.2"
   }
 }
